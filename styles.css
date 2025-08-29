@@ -1,70 +1,47 @@
 /* ==========================
-   Root Variables (Default Dark Mode)
+   Root Variables
 ========================== */
 :root {
-    --primary-color: #8484e6; /* Indigo 600 */
-    --accent-color: #10b981; /* Emerald 500 */
-    --background-color: #0f172a; /* Slate 900 */
-    --card-background: #1e293b; /* Slate 800 */
-    --text-color: #f8fafc; /* Gray 100 */
-    --button-hover: #6366f1; /* Indigo 500 */
-    --btn-border: #334155;
+  --primary-color: #8484e6;
+  --accent-color: #10b981;
+  --background-color: #0f172a;
+  --card-background: #1e293b;
+  --text-color: #f8fafc;
+  --button-hover: #6366f1;
+  --btn-border: #334155;
+  --header-gradient-dark: linear-gradient(270deg, #4b6cb7, #182848, #fca311, #4b6cb7);
+  --header-gradient-light: linear-gradient(270deg, #ffa69e, #faf3dd, #b8f2e6, #ffa69e);
 }
-
 
 /* ==========================
    Base Styles
 ========================== */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
   margin: 0;
-}
-
-body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.card {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-/* Typography */
-h2, h1, .lead {
-  color: var(--text-color);
+h1, h2, .lead {
+  transition: color 0.3s ease;
 }
 
 section {
   padding: 60px 0;
-  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 section img {
   max-width: 100%;
   height: auto;
+  transition: filter 0.3s ease, border-color 0.3s ease;
 }
 
 /* ==========================
-   Light Mode / Dark Mode
+   Dark / Light Mode
 ========================== */
-body.light-mode {
-  --background-color: #ffffff;
-  --card-background: #ffffff;
-  --text-color: #1e293b;
-  --primary-color: #3b82f6;
-  --accent-color: #059669;
-  --button-hover: #2563eb;
-  --btn-border: #94a3b8;
-  --header-bg: linear-gradient(135deg, #ffa69e, #faf3dd, #b8f2e6);
-
-
-}
-
 body.dark-mode {
   --background-color: #0f172a;
   --card-background: #1e293b;
@@ -73,73 +50,46 @@ body.dark-mode {
   --accent-color: #10b981;
   --button-hover: #6366f1;
   --btn-border: #334155;
-  --header-bg: linear-gradient(135deg, #000000, #14213d, #fca311);
-
-
+  --header-bg: var(--header-gradient-dark);
 }
 
-body.light-mode section {
-  background-color: #ffffff;
-  color: #1e293b;
+body.light-mode {
+  --background-color: #ffffff;
+  --card-background: #ffffff;
+  --text-color: #1e293b;
+  --primary-color: #3b82f6;
+  --accent-color: #059669;
+  --button-hover: #2563eb;
+  --btn-border: #94a3b8;
+  --header-bg: var(--header-gradient-light);
 }
 
-body.dark-mode section {
-  background-color: var(--card-background);
-  color: var(--text-color);
-}
-
-body.light-mode .navbar, body.light-mode footer {
-  background-color: #e5e7eb;
-  color: #1e293b;
-}
-
-body.dark-mode .navbar, body.dark-mode footer {
-  background-color: #1f1f1f;
-  color: #f8fafc;
-}
-
-
-
-  .dark-mode .card {
-  background-color: #1e1e1e;
-  color: #f8f9fa;
-  border-color: #444;
-}
-
-.dark-mode .card .btn-outline-primary {
-  color: #0d6efd;
-  border-color: #0d6efd;
-}
-
-.dark-mode .card .btn-outline-primary:hover {
-  background-color: #0d6efd;
-  color: white;
-}
-
-
+/* Navbar & Footer Colors */
+body.light-mode .navbar,
+body.light-mode footer { background-color: #e5e7eb; color: #1e293b; }
+body.dark-mode .navbar,
+body.dark-mode footer { background-color: #1f1f1f; color: #f8fafc; }
 
 /* ==========================
    Header
 ========================== */
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 header {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: var(--header-bg);
-  background-size: 600% 600%;
-  animation: gradientShift 12s ease infinite;
+  background: linear-gradient(135deg, #4b6cb7, #182848, #4b6cb7);
+  background-size: 400% 400%;
+  animation: professionalGradient 15s ease infinite;
   transition: background 0.5s ease;
 }
 
+@keyframes professionalGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* ==========================
    About Me Section
@@ -147,80 +97,74 @@ header {
 #about {
   background-color: var(--card-background);
   color: var(--text-color);
-  padding: 60px 0;
   text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-#about p {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-#about img {
-  object-fit: cover;
-  border: 3px solid #06182b;
-  margin-top: 20px;
-  max-width: 200px;
-  border-radius: 50%;
-}
+#about h2 { font-size: 2.5rem; margin-bottom: 20px; }
+#about p { font-size: 1.25rem; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+#about img { object-fit: cover; border: 3px solid #06182b; margin-top: 20px; max-width: 200px; border-radius: 50%; }
 
 /* ==========================
    Projects Section
 ========================== */
 #projects {
   background-color: var(--card-background);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #projects .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
+  color: var(--text-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
 
+#projects .card h5,
+#projects .card p,
+#projects .card .badge { color: var(--text-color); }
 
-
-#projects .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+#projects .card .btn-outline-primary {
+  color: var(--text-color);
+  border-color: var(--primary-color);
 }
 
-#projects .card-img-top {
-  height: 200px;
-  object-fit: cover;
+body.light-mode #projects .card {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-color);
 }
 
-#projects .card-body {
-  padding: 20px;
+body.light-mode #projects .card .btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* GitHub Card Buttons */
+#projects .card .btn-outline-primary {
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#projects .card .btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  transform: scale(1.05);
 }
 
 /* ==========================
    Buttons
 ========================== */
-button,
-.btn-primary {
+button, .btn-primary {
   background: var(--accent-color);
   color: var(--text-color);
-  border: none;
+  border: 1px solid var(--btn-border);
   padding: 10px 20px;
   font-weight: 600;
   border-radius: 8px;
   transition: all 0.3s ease;
-  border-color: var(--btn-border);
   cursor: pointer;
 }
 
-button:hover,
-.btn-primary:hover {
+button:hover, .btn-primary:hover {
   background: var(--button-hover);
   transform: scale(1.05);
   color: var(--text-color);
@@ -243,6 +187,12 @@ footer a {
   margin: 0 10px;
 }
 
-footer a:hover {
-  text-decoration: underline;
+footer a:hover { text-decoration: underline; }
+
+/* ==========================
+   Hover Animations
+========================== */
+.hover-scale:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
 }
