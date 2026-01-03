@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Article | James Beech</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body class="dark-mode">
+<section id="article-section" class="py-5">
+  <div class="container">
+    <article id="content" class="markdown-body"></article>
+  </div>
+</section>
+
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const post = params.get("post");
+
+fetch(`/articles/content/${post}.md`)
+  .then(res => res.text())
+  .then(md => {
+    const body = md.split('---').slice(2).join('---');
+    document.getElementById("content").innerHTML = marked.parse(body);
+  });
+</script>
+
+</body>
+</html>

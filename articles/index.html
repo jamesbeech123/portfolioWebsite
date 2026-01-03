@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Articles | James Beech</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="dark-mode">
+
+<section id="articles" class="py-5">
+  <div class="container">
+    <h1>Articles</h1>
+    <ul id="article-list"></ul>
+  </div>
+</section>
+
+
+<script>
+const articles = [
+  "kali-vmware-2026.md",
+  "minecraft-mod-architecture.md"
+];
+
+const list = document.getElementById("article-list");
+
+articles.forEach(file => {
+  fetch(`./content/${file}`)
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to load " + file);
+      return res.text();
+    })
+    .then(text => {
+      const match = text.match(/title:\s*(.*)/);
+      if (!match) return;
+
+      const title = match[1];
+      const slug = file.replace(".md", "");
+
+      list.innerHTML += `
+        <li>
+          <a href="article.html?post=${slug}">${title}</a>
+        </li>`;
+    })
+    .catch(err => console.error(err));
+});
+</script>
+
+
+</body>
+</html>
