@@ -19,7 +19,7 @@
 const params = new URLSearchParams(window.location.search);
 const post = params.get("post");
 
-fetch(`../articles/content/${post}.md`)
+fetch(`/articles/content/${post}.md`)
   .then(res => res.text())
   .then(md => {
     const body = md.split('---').slice(2).join('---');
