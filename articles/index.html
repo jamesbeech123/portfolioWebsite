@@ -1,50 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Articles | James Beech</title>
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing — James Beech</title>
+  <meta name="description" content="Technical articles by James Beech — backend engineering, systems, and tools.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f4f0; --bg2: #eeece7; --white: #ffffff;
+      --ink: #1a1916; --ink2: #3d3b36; --muted: #7a776e; --faint: #b0ada5;
+      --border: #dddad3; --border2: #c8c4bb;
+      --accent: #2563eb; --accent-bg: #eff4ff;
+      --green: #16a34a; --green-bg: #f0fdf4;
+      --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,244,240,0.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-weight: 600; font-size: 0.95rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    nav ul { list-style: none; display: flex; gap: 0.25rem; }
+    nav a.nav-link { font-size: 0.85rem; color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+    nav a.nav-link:hover, nav a.nav-link.active { color: var(--ink); background: var(--bg2); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-resume { font-size: 0.82rem; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--border2); padding: 0.35rem 0.9rem; border-radius: 6px; background: var(--white); transition: box-shadow 0.15s; }
+    .nav-resume:hover { box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+
+    .page { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
+
+    .page-header { border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; margin-bottom: 3rem; }
+    .section-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 1rem; }
+    .page-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 0.75rem; }
+    .page-title em { font-style: italic; font-weight: 300; color: var(--muted); }
+    .page-desc { font-size: 0.95rem; color: var(--ink2); max-width: 480px; line-height: 1.75; }
+
+    .articles-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--white); }
+
+    .article-row {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 1.5rem; padding: 1.5rem 1.75rem;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none; color: inherit;
+      transition: background 0.15s; align-items: center;
+    }
+    .article-row:last-child { border-bottom: none; }
+    .article-row:hover { background: var(--bg); }
+
+    .article-tag {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.35rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--faint); }
+    .tag-dot.blue { background: var(--accent); }
+    .tag-dot.green { background: var(--green); }
+    .tag-dot.amber { background: #d97706; }
+
+    .article-title { font-size: 1rem; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+    .article-desc { font-size: 0.875rem; color: var(--ink2); line-height: 1.55; }
+    .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.6rem; }
+    .article-date { font-family: var(--mono); font-size: 0.7rem; color: var(--faint); }
+    .article-chip { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); background: var(--bg2); padding: 0.15rem 0.5rem; border-radius: 4px; }
+    .article-arrow { font-size: 1rem; color: var(--faint); transition: color 0.15s, transform 0.15s; flex-shrink: 0; }
+    .article-row:hover .article-arrow { color: var(--ink); transform: translate(2px, -2px); }
+
+    .empty-state { padding: 3rem; text-align: center; color: var(--muted); font-size: 0.9rem; }
+
+    footer { max-width: 1000px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; border-top: 1px solid var(--border); margin-top: 2rem; }
+    footer p { font-size: 0.8rem; color: var(--faint); }
+    footer a { color: var(--faint); text-decoration: none; }
+    footer a:hover { color: var(--muted); }
+
+    @media (max-width: 768px) { nav ul { display: none; } }
+  </style>
 </head>
-<body class="dark-mode">
+<body>
 
-<section id="articles" class="py-5">
-  <div class="container">
-    <h1>Articles</h1>
-    <ul id="article-list"></ul>
+<nav>
+  <a href="/" class="nav-logo">James Beech</a>
+  <ul>
+    <li><a href="/#projects" class="nav-link">Projects</a></li>
+    <li><a href="/#skills" class="nav-link">Skills</a></li>
+    <li><a href="/#about" class="nav-link">About</a></li>
+    <li><a href="/#contact" class="nav-link">Contact</a></li>
+    <li><a href="index.html" class="nav-link active">Writing</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="../resume.pdf" download class="nav-resume">Resume ↓</a>
   </div>
-</section>
+</nav>
 
+<div class="page">
+  <div class="page-header">
+    <div class="section-label">Writing</div>
+    <h1 class="page-title">Technical <em>articles</em></h1>
+    <p class="page-desc">Notes on backend engineering, tooling, and things I've figured out the hard way.</p>
+  </div>
 
-<script>
-const articles = [
-  "kali-vmware-2026.md",
-  "minecraft-mod-architecture.md"
-];
+  <div class="articles-list" id="articles-list">
+    <!-- Hardcoded articles — add new ones here -->
 
-const list = document.getElementById("article-list");
+    <a class="article-row" href="article.html?post=building-orbitalwatch">
+      <div>
+        <div class="article-tag"><span class="tag-dot blue"></span> Project writeup</div>
+        <div class="article-title">Building OrbitalWatch: real-time satellite tracking with Python and CesiumJS</div>
+        <div class="article-desc">How I built a live 3D satellite tracker — TLE data, SGP4 propagation, a Python backend, and getting CesiumJS to render orbital paths without melting the browser.</div>
+        <div class="article-meta">
+          <span class="article-date">Coming soon</span>
+          <span class="article-chip">Python</span>
+          <span class="article-chip">React</span>
+          <span class="article-chip">CesiumJS</span>
+        </div>
+      </div>
+      <div class="article-arrow">↗</div>
+    </a>
 
-articles.forEach(file => {
-  fetch(`./content/${file}`)
-    .then(res => {
-      if (!res.ok) throw new Error("Failed to load " + file);
-      return res.text();
-    })
-    .then(text => {
-      const match = text.match(/title:\s*(.*)/);
-      if (!match) return;
+    <a class="article-row" href="article.html?post=kali-vmware-2026">
+      <div>
+        <div class="article-tag"><span class="tag-dot green"></span> Setup guide</div>
+        <div class="article-title">Setting up Kali Linux in VMware (2026)</div>
+        <div class="article-desc">A straightforward guide to getting Kali Linux running in VMware Workstation Pro on Windows 11, including the common gotchas that catch people out.</div>
+        <div class="article-meta">
+          <span class="article-date">2026-02-14</span>
+          <span class="article-chip">Kali</span>
+          <span class="article-chip">VMware</span>
+          <span class="article-chip">Linux</span>
+        </div>
+      </div>
+      <div class="article-arrow">↗</div>
+    </a>
 
-      const title = match[1];
-      const slug = file.replace(".md", "");
+    <a class="article-row" href="article.html?post=minecraft-mod-architecture">
+      <div>
+        <div class="article-tag"><span class="tag-dot amber"></span> Architecture</div>
+        <div class="article-title">Minecraft mod architecture — what I learnt building one</div>
+        <div class="article-desc">Notes from building a Minecraft mod: how the Forge/Fabric event system works, where the interesting engineering problems are, and what it taught me about Java.</div>
+        <div class="article-meta">
+          <span class="article-date">2025</span>
+          <span class="article-chip">Java</span>
+          <span class="article-chip">Minecraft</span>
+        </div>
+      </div>
+      <div class="article-arrow">↗</div>
+    </a>
 
-      list.innerHTML += `
-        <li>
-          <a href="article.html?post=${slug}">${title}</a>
-        </li>`;
-    })
-    .catch(err => console.error(err));
-});
-</script>
+  </div>
+</div>
 
+<footer>
+  <p>© 2026 James Beech</p>
+  <p><a href="https://github.com/jamesbeech123" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/james-beech-98b2802b4" target="_blank">LinkedIn</a></p>
+</footer>
 
 </body>
 </html>
