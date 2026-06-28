@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>James Beech — Backend Engineer</title>
-  <meta name="description" content="James Beech — Backend Engineer specialising in APIs, data systems, and real-time applications.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"James Beech","url":"https://jamesbeech.co.uk","sameAs":["https://github.com/jamesbeech123","https://www.linkedin.com/in/james-beech-98b2802b4"],"jobTitle":"Backend Engineer","alumniOf":{"@type":"CollegeOrUniversity","name":"University of Kent"}}</script>
+  <title>James Beech — Junior Software Engineer</title>
+  <meta name="description" content="James Beech — Junior Software Engineer building C# backends, Vue.js frontends, and data systems.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"James Beech","url":"https://jamesbeech.co.uk","sameAs":["https://github.com/jamesbeech123","https://www.linkedin.com/in/james-beech-98b2802b4"],"jobTitle":"Junior Software Engineer","alumniOf":{"@type":"CollegeOrUniversity","name":"University of Kent"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -45,8 +45,6 @@
     nav a.nav-link { font-size: 0.85rem; color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px; transition: color 0.15s, background 0.15s; }
     nav a.nav-link:hover { color: var(--ink); background: var(--bg2); }
     .nav-right { display: flex; align-items: center; gap: 1rem; }
-    .nav-badge { font-size: 0.75rem; font-weight: 500; color: var(--green); background: var(--green-bg); border: 1px solid #bbf7d0; padding: 0.25rem 0.65rem; border-radius: 20px; display: flex; align-items: center; gap: 0.4rem; }
-    .nav-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
     .nav-resume { font-size: 0.82rem; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--border2); padding: 0.35rem 0.9rem; border-radius: 6px; background: var(--white); transition: box-shadow 0.15s; }
     .nav-resume:hover { box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
 
@@ -104,7 +102,7 @@
     .meta-val { font-size: 0.85rem; color: var(--ink2); padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.4rem; }
     .meta-val a { color: var(--accent); text-decoration: none; }
     .meta-val a:hover { text-decoration: underline; }
-    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .contact-intro { font-size: 0.925rem; color: var(--ink2); line-height: 1.8; margin-bottom: 1.5rem; }
@@ -147,16 +145,15 @@
     <li><a href="articles/index.html" class="nav-link">Writing</a></li>
   </ul>
   <div class="nav-right">
-    <span class="nav-badge">Available for work</span>
     <a href="resume.pdf" download class="nav-resume">Resume ↓</a>
   </div>
 </nav>
 
 <header id="hero">
   <div>
-    <div class="hero-eyebrow">Backend Engineer · Stoke-on-Trent, UK · Open to remote</div>
-    <h1>Building systems<br>that <em>actually work.</em></h1>
-    <p class="hero-desc">First Class Computer Science graduate from the University of Kent. I build APIs, data pipelines, and real-time applications — focused on correctness, clarity, and code that holds up.</p>
+    <div class="hero-eyebrow">Junior Software Engineer · Lutterworth, UK</div>
+    <h1>Building reliable systems<br><em>that hold up</em></h1>
+    <p class="hero-desc">Junior Software Engineer from the University of Kent, working in cybersecurity and identity management. I build with C#, Vue.js, and whatever else the problem calls for — focused on correctness, clarity, and code that lasts.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-solid">See my work</a>
       <a href="resume.pdf" download class="btn btn-ghost">Download CV</a>
@@ -187,7 +184,7 @@
     <a class="project-row featured" href="https://github.com/jamesbeech123/satellite-tracker" target="_blank">
       <div>
         <div class="project-status"><span class="dot live"></span> In development · Python + React</div>
-        <div class="project-title">OrbitalWatch — Real-time Satellite Tracker</div>
+        <div class="project-title">OrbitalWatch, Real-time Satellite Tracker</div>
         <div class="project-desc">3D globe visualisation of live satellite positions using CesiumJS. Polls a satellite API every 10 seconds, renders orbital trails, and surfaces NORAD data including period, inclination, and eccentricity. Group switching and pass prediction in progress.</div>
         <div class="project-stack">
           <span class="chip">Python</span><span class="chip">React</span><span class="chip">CesiumJS</span><span class="chip">REST API</span><span class="chip">TLE propagation</span>
@@ -240,13 +237,13 @@
     <div class="skill-card">
       <div class="skill-card-label">Languages</div>
       <div class="skill-tags">
-        <span class="skill-tag">Java</span><span class="skill-tag">C#</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span><span class="skill-tag">Rust</span><span class="skill-tag">PHP</span><span class="skill-tag">Bash</span>
+        <span class="skill-tag">C#</span><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Vue.js</span><span class="skill-tag">SQL</span><span class="skill-tag">Rust</span><span class="skill-tag">Bash</span>
       </div>
     </div>
     <div class="skill-card">
       <div class="skill-card-label">Frameworks</div>
       <div class="skill-tags">
-        <span class="skill-tag">Spring Boot 3</span><span class="skill-tag">ASP.NET Core</span><span class="skill-tag">Flask</span><span class="skill-tag">React</span><span class="skill-tag">Plotly Dash</span><span class="skill-tag">Swagger</span>
+        <span class="skill-tag">ASP.NET Core</span><span class="skill-tag">Spring Boot 3</span><span class="skill-tag">Vue 3</span><span class="skill-tag">Flask</span><span class="skill-tag">React</span><span class="skill-tag">Plotly Dash</span>
       </div>
     </div>
     <div class="skill-card">
@@ -258,7 +255,7 @@
     <div class="skill-card">
       <div class="skill-card-label">Testing & Practices</div>
       <div class="skill-tags">
-        <span class="skill-tag">JUnit 5</span><span class="skill-tag">Mockito</span><span class="skill-tag">pytest</span><span class="skill-tag">REST APIs</span><span class="skill-tag">JWT Auth</span><span class="skill-tag">Agile</span><span class="skill-tag">TDD</span>
+        <span class="skill-tag">Vitest</span><span class="skill-tag">JUnit 5</span><span class="skill-tag">Mockito</span><span class="skill-tag">pytest</span><span class="skill-tag">REST APIs</span><span class="skill-tag">JWT Auth</span><span class="skill-tag">Agile</span>
       </div>
     </div>
   </div>
@@ -268,9 +265,9 @@
   <div class="section-label">About me</div>
   <div class="about-grid">
     <div class="about-body">
-      <p>I'm a <strong>First Class Computer Science graduate</strong> from the University of Kent, focused on backend systems, data-driven applications, and building software that solves real problems.</p>
-      <p>I care about the details — APIs that are clean to consume, databases that query efficiently, and systems that are easy to reason about. I'm looking for a role where I can work on production software with experienced engineers and keep growing quickly.</p>
-      <p>Right now I'm finishing <strong>OrbitalWatch</strong>, a real-time satellite tracking tool, and writing occasional technical articles. I'm open to backend, full-stack, or data engineering roles across the UK or fully remote.</p>
+      <p>I'm a <strong>First Class Computer Science graduate</strong> from the University of Kent, now working as a Junior Software Engineer in the cybersecurity and identity management space.</p>
+      <p>Day to day I work across C# backends and Vue.js frontends, building features on an enterprise identity platform used by organisations worldwide. I care about the details — clean APIs, efficient queries, and systems that are easy to reason about.</p>
+      <p>Outside of work I'm building <strong>OrbitalWatch</strong>, a real-time satellite tracking tool, and writing occasional technical articles. I'm always working on something.</p>
     </div>
     <div class="meta-table">
       <div class="meta-row">
@@ -279,15 +276,15 @@
       </div>
       <div class="meta-row">
         <span class="meta-key">Location</span>
-        <span class="meta-val">Stoke-on-Trent, UK</span>
+        <span class="meta-val">Lutterworth, UK</span>
       </div>
       <div class="meta-row">
-        <span class="meta-key">Remote</span>
-        <span class="meta-val">Yes — open to relocate too</span>
+        <span class="meta-key">Role</span>
+        <span class="meta-val"><span class="status-dot"></span> Junior Software Engineer</span>
       </div>
       <div class="meta-row">
-        <span class="meta-key">Status</span>
-        <span class="meta-val"><span class="status-dot"></span> Available immediately</span>
+        <span class="meta-key">Focus</span>
+        <span class="meta-val">C# · Vue.js · Identity systems</span>
       </div>
       <div class="meta-row">
         <span class="meta-key">GitHub</span>
@@ -305,7 +302,7 @@
   <div class="section-label">Get in touch</div>
   <div class="contact-grid">
     <div>
-      <p class="contact-intro">I'm actively looking for backend or full-stack engineering roles. If you're hiring or have something interesting to discuss, I'd like to hear from you.</p>
+      <p class="contact-intro">Whether it's a project, a collaboration, or just something interesting — feel free to reach out.</p>
       <div class="contact-links">
         <a href="mailto:jamesbeech2003@hotmail.com" class="contact-item">
           <span class="contact-icon">@</span>jamesbeech2003@hotmail.com
