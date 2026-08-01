@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>James Beech — Junior Software Engineer</title>
-  <meta name="description" content="James Beech — Junior Software Engineer building C# backends, Vue.js frontends, and data systems.">
+  <title>James Beech - Junior Software Engineer</title>
+  <meta name="description" content="James Beech - Junior Software Engineer building C# backends, Vue.js frontends, and data systems.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"James Beech","url":"https://jamesbeech.co.uk","sameAs":["https://github.com/jamesbeech123","https://www.linkedin.com/in/james-beech-98b2802b4"],"jobTitle":"Junior Software Engineer","alumniOf":{"@type":"CollegeOrUniversity","name":"University of Kent"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,9 +50,8 @@
 
     #hero { padding: 5rem 2rem 4rem; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; border-bottom: 1px solid var(--border); }
     .hero-eyebrow { font-size: 0.82rem; font-weight: 500; color: var(--muted); margin-bottom: 1.25rem; }
-    h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem; }
-    h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
-    .hero-desc { font-size: 1rem; color: var(--ink2); max-width: 480px; line-height: 1.75; margin-bottom: 2rem; }
+    h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem; }
+    .hero-desc { font-size: 1.15rem; color: var(--ink2); max-width: 520px; line-height: 1.75; margin-bottom: 2rem; }
     .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
     .btn { font-size: 0.85rem; font-weight: 500; text-decoration: none; padding: 0.6rem 1.25rem; border-radius: 8px; transition: all 0.15s; }
     .btn-solid { background: var(--ink); color: var(--bg); }
@@ -152,8 +151,8 @@
 <header id="hero">
   <div>
     <div class="hero-eyebrow">Junior Software Engineer · Lutterworth, UK</div>
-    <h1>Building reliable systems<br><em>that hold up</em></h1>
-    <p class="hero-desc">Junior Software Engineer from the University of Kent, working in cybersecurity and identity management. I build with C#, Vue.js, and whatever else the problem calls for — focused on correctness, clarity, and code that lasts.</p>
+    <h1>James Beech</h1>
+    <p class="hero-desc">Junior Software Engineer from the University of Kent, working in cybersecurity and identity management. I work mainly in C# and Vue.js, building features on an enterprise identity platform used by organisations worldwide.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-solid">See my work</a>
       <a href="resume.pdf" download class="btn btn-ghost">Download CV</a>
@@ -181,17 +180,6 @@
 <section class="section fade-up" id="projects">
   <div class="section-label">Selected work</div>
   <div class="projects-list">
-    <a class="project-row featured" href="https://github.com/jamesbeech123/satellite-tracker" target="_blank">
-      <div>
-        <div class="project-status"><span class="dot live"></span> In development · Python + React</div>
-        <div class="project-title">OrbitalWatch, Real-time Satellite Tracker</div>
-        <div class="project-desc">3D globe visualisation of live satellite positions using CesiumJS. Polls a satellite API every 10 seconds, renders orbital trails, and surfaces NORAD data including period, inclination, and eccentricity. Group switching and pass prediction in progress.</div>
-        <div class="project-stack">
-          <span class="chip">Python</span><span class="chip">React</span><span class="chip">CesiumJS</span><span class="chip">REST API</span><span class="chip">TLE propagation</span>
-        </div>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
     <a class="project-row" href="https://github.com/jamesbeech123/inventory-api" target="_blank">
       <div>
         <div class="project-status"><span class="dot active"></span> Complete · Java</div>
@@ -221,6 +209,17 @@
         <div class="project-desc">REST API for managing clients, portfolios, and investments with analytics charts. Built with ASP.NET Core and Entity Framework Core with a lightweight JavaScript frontend.</div>
         <div class="project-stack">
           <span class="chip">ASP.NET Core</span><span class="chip">Entity Framework</span><span class="chip">C#</span><span class="chip">JavaScript</span>
+        </div>
+      </div>
+      <div class="project-arrow">↗</div>
+    </a>
+    <a class="project-row" href="https://github.com/jamesbeech123/satellite-tracker" target="_blank">
+      <div>
+        <div class="project-status"><span class="dot"></span> Paused · Python + React</div>
+        <div class="project-title">OrbitalWatch, Real-time Satellite Tracker</div>
+        <div class="project-desc">3D globe visualisation of live satellite positions using CesiumJS. Polls a satellite API every 10 seconds, renders orbital trails, and surfaces NORAD data including period, inclination, and eccentricity.</div>
+        <div class="project-stack">
+          <span class="chip">Python</span><span class="chip">React</span><span class="chip">CesiumJS</span><span class="chip">REST API</span><span class="chip">TLE propagation</span>
         </div>
       </div>
       <div class="project-arrow">↗</div>
@@ -266,8 +265,8 @@
   <div class="about-grid">
     <div class="about-body">
       <p>I'm a <strong>First Class Computer Science graduate</strong> from the University of Kent, now working as a Junior Software Engineer in the cybersecurity and identity management space.</p>
-      <p>Day to day I work across C# backends and Vue.js frontends, building features on an enterprise identity platform used by organisations worldwide. I care about the details — clean APIs, efficient queries, and systems that are easy to reason about.</p>
-      <p>Outside of work I'm building <strong>OrbitalWatch</strong>, a real-time satellite tracking tool, and writing occasional technical articles. I'm always working on something.</p>
+      <p>Day to day I work across C# backends and Vue.js frontends, building features on an enterprise identity platform used by organisations worldwide. I care about clean APIs and efficient queries. In security software, a sloppy edge case isn't just a bug, it's a liability.</p>
+      <p>Outside of work I write occasional technical articles, and I've built a few side projects along the way, including <strong>OrbitalWatch</strong>, a real-time satellite tracker.</p>
     </div>
     <div class="meta-table">
       <div class="meta-row">
@@ -302,7 +301,7 @@
   <div class="section-label">Get in touch</div>
   <div class="contact-grid">
     <div>
-      <p class="contact-intro">Whether it's a project, a collaboration, or just something interesting — feel free to reach out.</p>
+      <p class="contact-intro">Whether it's a project, a collaboration, or just something interesting, feel free to reach out.</p>
       <div class="contact-links">
         <a href="mailto:jamesbeech2003@hotmail.com" class="contact-item">
           <span class="contact-icon">@</span>jamesbeech2003@hotmail.com
